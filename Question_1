@@ -1,0 +1,67 @@
+Q1.>>
+// Function to generate mark sheets for students
+function generateStudentMarkSheets(students, details) {
+    // Initialize an empty array to store the generated mark sheets
+    let studentsMarkSheets = [];
+
+    // Iterate over each student
+    for (let s of students) {
+        // Initialize a mark sheet object with student name and roll number
+        let markSheet = { name: s.name, Roll: s.Roll };
+
+        // Iterate over each detail to find matching student details
+        for (let d of details) {
+            // Check if the detail corresponds to the current student
+            if (d.Roll === s.Roll) {
+                // Extract marks for the student
+                let marks = d.subjects;
+                // Initialize total marks for the student
+                let totalMarks = 0;
+
+                // Calculate total marks and assign marks for each subject
+                for (let subject in marks) {
+                    markSheet[subject] = marks[subject];
+                    totalMarks += marks[subject];
+                }
+
+                // Assign total marks and determine pass/fail status
+                markSheet.total = totalMarks;
+                markSheet.status = totalMarks >= 200 ? "pass" : "fail";
+
+                // Exit the loop once details for the current student are processed
+                break;
+            }
+        }
+
+        // Push the mark sheet for the current student to the array
+        studentsMarkSheets.push(markSheet);
+    }
+
+    // Return the array of mark sheets for all students
+    return studentsMarkSheets;
+}
+
+// Information about each student
+const students = [
+    { name: "Dhishan Debnath", Roll: 1 },
+    { name: "Animesh Gupta", Roll: 2 },
+    { name: "Tapas Sen", Roll: 3 },
+    { name: "Misti Dutta", Roll: 4 },
+    { name: "Chini Misra", Roll: 5 }
+];
+
+// Details of marks for each student
+const details = [
+    { Roll: 5, subjects: { math: 35, english: 56, chemistry: 76, computer: 68 } },
+    { Roll: 3, subjects: { math: 33, chemistry: 12, computer: 50, english: 35 } },
+    { Roll: 1, subjects: { math: 55, english: 75, chemistry: 76, computer: 94 } },
+    { Roll: 4, subjects: { english: 12, chemistry: 85, computer: 68, math: 45 } },
+    { Roll: 2, subjects: { math: 55, english: 56, computer: 48, chemistry: 12 } }
+];
+
+// Generate mark sheets for students
+const studentsMarkSheets = generateStudentMarkSheets(students, details);
+
+// Display the generated mark sheets
+console.log(studentsMarkSheets);
+
