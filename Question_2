@@ -16,8 +16,10 @@ function search_cafe(CName, TO_search) {
 }
 
 
-// Lists of cafes given in the question, with their place IDs
-const cafes = [
+// Function to find cafes in Califoornia based on a search term
+function findCaliforniaCafes(searchTerm) {
+    // Lists of cafes given in the question, with their place IDs
+    const cafes = [
         { name: "Ashley's Cafe", placeId: "12hydbdf76sljfts87sbfis" },
         { name: "Avenue Bakery Cafe", placeId: "jahgde7wgdiau8ewsahgosd" },
         { name: "Avenue Cafe", placeId: "skjd86svvfdrsv55svbvf3f" },
@@ -37,3 +39,45 @@ const cafes = [
         { id: "mjdhgetr4pojfyts22fzfsh", streetNo: "22803", locality: "Gunston Dr Lexington Park", postalCode: "20688", latitude: "35.7788", longitude: "119.979" },
         { id: "urhw3837ehalod7w02b7835", streetNo: "225", locality: "Macarthur Blvd", postalCode: "20687", latitude: "35.77813", longitude: "119.41791" }
     ];
+
+    // Array to store matching cafes and their location details
+    const matchCafes = [];
+
+    // Loop through each cafe
+    for (let c of cafes) {
+        // Check if the cafe name contains the search term (case-insensitive)
+        if (search_cafe(c.name.toLowerCase(), searchTerm.toLowerCase())) {
+            // Variable to store details of the matching place
+            let P_detail;
+            // Loop through each place to find matching place details
+            for (let p of placeDetails) {
+                // Check if the place ID matches the place ID of the current cafe
+                if (p.id === c.placeId) {
+                    // Store the details of the matching place
+                    P_detail = p;
+                    // Exit the loop once a match is found
+                    break;
+                }
+            }
+            // If place details are found, add them to the results array
+            if (P_detail) {
+                matchCafes.push({
+                    name: c.name,
+                    streetNo: P_detail.streetNo,
+                    locality: P_detail.locality,
+                    postalCode: P_detail.postalCode,
+                    latitude: P_detail.latitude,
+                    longitude: P_detail.longitude
+                });
+            }
+        }
+    }
+
+    // Return the array of matching cafes and their location details
+    return matchCafes;
+}
+
+// Example usage:
+const searchTerm = 'Avenue';
+const results = findCaliforniaCafes(searchTerm);
+console.log(results);
