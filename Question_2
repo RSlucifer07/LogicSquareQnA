@@ -1,4 +1,22 @@
- // Lists of cafes given in the question, with their place IDs
+// Creating a function to check if a string contains a substring
+function search_cafe(CName, TO_search) {
+    for (let i = 0; i <= CName.length - TO_search.length; i++) {
+        let found = true;
+        for (let j = 0; j < TO_search.length; j++) {
+            if (CName[i + j] !== TO_search[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+// Lists of cafes given in the question, with their place IDs
 const cafes = [
         { name: "Ashley's Cafe", placeId: "12hydbdf76sljfts87sbfis" },
         { name: "Avenue Bakery Cafe", placeId: "jahgde7wgdiau8ewsahgosd" },
