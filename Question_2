@@ -1,0 +1,21 @@
+ // Lists of cafes given in the question, with their place IDs
+const cafes = [
+        { name: "Ashley's Cafe", placeId: "12hydbdf76sljfts87sbfis" },
+        { name: "Avenue Bakery Cafe", placeId: "jahgde7wgdiau8ewsahgosd" },
+        { name: "Avenue Cafe", placeId: "skjd86svvfdrsv55svbvf3f" },
+        { name: "Bazaar Cafe", placeId: "kjk234g4gcvfx8usg1l33pi" },
+        { name: "California Chicken Cafe", placeId: "12hydbdf76sljfts87sbfis" },
+        { name: "Hi-Lo Cafe", placeId: "mjdhgetr4pojfyts22fzfsh" },
+        { name: "Philz Coffee", placeId: "urhw3837ehalod7w02b7835" }
+    ];
+
+    // Place details as per the questions
+    const placeDetails = [
+        { id: "12hydbdf76sljfts87sbfis", streetNo: "1B", locality: "Macarthur Blvd", postalCode: "20619", latitude: "38.1781 N", longitude: "118.4171 W" },
+        { id: "jahgde7wgdiau8ewsahgosd", streetNo: "60H", locality: "Solomos Island Road", postalCode: "20688", latitude: "36.7783 N", longitude: "119.4179 W" },
+        { id: "kjk234g4gcvfx8usg1l33pi", streetNo: "45250", locality: "Worth Avenue, Unit A", postalCode: "20619", latitude: "36.1152", longitude: "117.521" },
+        { id: "saswe3s6yydtdr52hsd72yst", streetNo: "1X", locality: "Macarthur Blvd", postalCode: "20687", latitude: "36.7783", longitude: "119.4179" },
+        { id: "skjd86svvfdrsv55svbvf3f", streetNo: "7S", locality: "Three Notch Road", postalCode: "20619", latitude: "36.83", longitude: "119.6" },
+        { id: "mjdhgetr4pojfyts22fzfsh", streetNo: "22803", locality: "Gunston Dr Lexington Park", postalCode: "20688", latitude: "35.7788", longitude: "119.979" },
+        { id: "urhw3837ehalod7w02b7835", streetNo: "225", locality: "Macarthur Blvd", postalCode: "20687", latitude: "35.77813", longitude: "119.41791" }
+    ];
